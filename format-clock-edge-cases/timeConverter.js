@@ -7,7 +7,8 @@ function formatAs12HourClock(time) {
   }
 
   if (hours > 12) {
-    return `${hours - 12}:${minutes} pm`;
+    const pmHours = String(hours - 12).padStart(2, "0");
+    return `${pmHours}:${minutes} pm`;
   }
 
   if (hours === 12) {
