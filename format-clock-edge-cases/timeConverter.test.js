@@ -22,3 +22,16 @@ for (const [time, expected] of cases) {
         assert.equal(formatAs12HourClock(time), expected);
     });
 }
+
+test("converts every valid minute of the day", () => {
+    for (let hour = 0; hour < 24; hour += 1) {
+        for (let minute = 0; minute < 60; minute += 1) {
+            const time = `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+            const convertedHour = hour % 12 || 12;
+            const period = hour < 12 ? "am" : "pm";
+            const expected = `${String(convertedHour).padStart(2, "0")}:${String(minute).padStart(2, "0")} ${period}`;
+
+            assert.equal(formatAs12HourClock(time), expected, time);
+        }
+    }
+});
