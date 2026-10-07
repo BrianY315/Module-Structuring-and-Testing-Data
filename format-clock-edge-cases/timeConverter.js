@@ -1,4 +1,8 @@
 function formatAs12HourClock(time) {
+  if (typeof time !== "string") {
+    throw new TypeError("time must be a string in HH:mm format");
+  }
+
   const hours = Number(time.slice(0, 2));
   const minutes = time.slice(3);
 

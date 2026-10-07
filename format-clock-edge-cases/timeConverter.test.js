@@ -23,6 +23,12 @@ for (const [time, expected] of cases) {
     });
 }
 
+for (const value of [true, false, [], ["08:00"], {}, 800, null, undefined]) {
+    test(`throws a TypeError for non-string input ${JSON.stringify(value)}`, () => {
+        assert.throws(() => formatAs12HourClock(value), TypeError);
+    });
+}
+
 test("converts every valid minute of the day", () => {
     for (let hour = 0; hour < 24; hour += 1) {
         for (let minute = 0; minute < 60; minute += 1) {
