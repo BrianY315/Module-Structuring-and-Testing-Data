@@ -35,3 +35,12 @@ test("Rejects angles outside the valid range", () => {
   assert.equal(getAngleType(-1), "Invalid angle");
   assert.equal(getAngleType(361), "Invalid angle");
 });
+
+test("Classifies angles immediately around category boundaries", () => {
+  assert.equal(getAngleType(0.1), "Acute angle");
+  assert.equal(getAngleType(89.9), "Acute angle");
+  assert.equal(getAngleType(90.1), "Obtuse angle");
+  assert.equal(getAngleType(179.9), "Obtuse angle");
+  assert.equal(getAngleType(180.1), "Reflex angle");
+  assert.equal(getAngleType(359.9), "Reflex angle");
+});
