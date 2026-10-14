@@ -1,18 +1,21 @@
 import { getAngleType } from "../implement/1-get-angle-type.js";
 
-// TODO: Write tests in Jest syntax to cover all cases/outcomes,
-// including boundary and invalid cases.
-
-// Case 1: Acute angles
-test(`should return "Acute angle" when (0 < angle < 90)`, () => {
-  // Test various acute angles, including boundary cases
-  expect(getAngleType(1)).toEqual("Acute angle");
-  expect(getAngleType(45)).toEqual("Acute angle");
-  expect(getAngleType(89)).toEqual("Acute angle");
+test.each([
+  [1, "Acute angle"],
+  [45, "Acute angle"],
+  [89, "Acute angle"],
+  [90, "Right angle"],
+  [91, "Obtuse angle"],
+  [135, "Obtuse angle"],
+  [179, "Obtuse angle"],
+  [180, "Straight angle"],
+  [181, "Reflex angle"],
+  [270, "Reflex angle"],
+  [359, "Reflex angle"],
+  [0, "Invalid angle"],
+  [360, "Invalid angle"],
+  [-1, "Invalid angle"],
+  [361, "Invalid angle"],
+])("classifies an angle of %i degrees", (angle, expectedType) => {
+  expect(getAngleType(angle)).toEqual(expectedType);
 });
-
-// Case 2: Right angle
-// Case 3: Obtuse angles
-// Case 4: Straight angle
-// Case 5: Reflex angles
-// Case 6: Invalid angles

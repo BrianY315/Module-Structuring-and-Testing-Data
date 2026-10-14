@@ -1,8 +1,17 @@
 import { isProperFraction } from "../implement/2-is-proper-fraction.js";
 
-// TODO: Write tests in Jest syntax to cover all combinations of positives, negatives, zeros, and other categories.
-
-// Special case: numerator is zero
-test(`should return false when denominator is zero`, () => {
-  expect(isProperFraction(1, 0)).toEqual(false);
+test.each([
+  [1, 2, true],
+  [9, 10, true],
+  [2, 1, false],
+  [3, 3, false],
+  [10, 2, false],
+  [0, 5, true],
+  [-1, 2, true],
+  [1, -2, true],
+  [-3, -2, false],
+  [0, 0, false],
+  [1, 0, false],
+])("checks %i/%i", (numerator, denominator, expected) => {
+  expect(isProperFraction(numerator, denominator)).toEqual(expected);
 });
