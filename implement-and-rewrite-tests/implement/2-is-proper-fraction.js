@@ -14,5 +14,5 @@
 // execute the code to ensure all tests pass.
 
 export function isProperFraction(numerator, denominator) {
-  // TODO: Implement this function
+  return denominator !== 0 && Math.abs(numerator) < Math.abs(denominator);
 }
