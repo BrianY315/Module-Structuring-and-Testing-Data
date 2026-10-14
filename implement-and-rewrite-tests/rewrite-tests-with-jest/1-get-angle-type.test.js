@@ -19,3 +19,14 @@ test.each([
 ])("classifies an angle of %i degrees", (angle, expectedType) => {
   expect(getAngleType(angle)).toEqual(expectedType);
 });
+
+test.each([
+  [0.1, "Acute angle"],
+  [89.9, "Acute angle"],
+  [90.1, "Obtuse angle"],
+  [179.9, "Obtuse angle"],
+  [180.1, "Reflex angle"],
+  [359.9, "Reflex angle"],
+])("classifies a boundary-adjacent angle of %i degrees", (angle, expectedType) => {
+  expect(getAngleType(angle)).toEqual(expectedType);
+});
