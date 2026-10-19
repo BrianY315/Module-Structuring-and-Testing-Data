@@ -14,6 +14,7 @@ test("should repeat the string count times", () => {
   const count = 3;
   const repeatedStr = repeatStr(str, count);
   expect(repeatedStr).toEqual("hellohellohello");
+  expect(repeatStr("", count)).toEqual("");
 });
 
 // Case: handle count of 1:
@@ -26,6 +27,7 @@ test("should return the original string when count is 1", () => {
   const count = 1;
   const repeatedStr = repeatStr(str, count);
   expect(repeatedStr).toEqual("hello");
+  expect(repeatStr("", count)).toEqual("");
 });
 
 // Case: Handle count of 0:
@@ -38,6 +40,7 @@ test("should return an empty string when count is 0", () => {
   const count = 0;
   const repeatedStr = repeatStr(str, count);
   expect(repeatedStr).toEqual("");
+  expect(repeatStr("", count)).toEqual("");
 });
 
 // Case: Handle negative count:
@@ -49,4 +52,5 @@ test("should throw an error when count is negative", () => {
   const str = "hello";
   const count = -1;
   expect(() => repeatStr(str, count)).toThrow();
+  expect(() => repeatStr("", count)).toThrow();
 });
