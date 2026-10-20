@@ -19,6 +19,9 @@ test("Handles zero and negative values", () => {
   assert.equal(isProperFraction(-1, 2), true);
   assert.equal(isProperFraction(1, -2), true);
   assert.equal(isProperFraction(-3, -2), false);
+  assert.equal(isProperFraction(-1, -2), true);
+  assert.equal(isProperFraction(-3, 2), false);
+  assert.equal(isProperFraction(3, -2), false);
 });
 
 test("Rejects a zero denominator", () => {

@@ -10,6 +10,9 @@ test.each([
   [-1, 2, true],
   [1, -2, true],
   [-3, -2, false],
+  [-1, -2, true],
+  [-3, 2, false],
+  [3, -2, false],
   [0, 0, false],
   [1, 0, false],
 ])("checks %i/%i", (numerator, denominator, expected) => {
