@@ -4,10 +4,6 @@
 const pets = ["parrot", "hamster", "horse", "dog", "hamster", "cat", "hamster"];
 const petsStartingWithH = pets.filter((pet) => pet[0] === "h");
 
-function logPets(petsArr) {
-  petsArr.forEach((pet) => console.log(pet));
-}
-
 function countAndCapitalisePets(petsArr) {
   const petCount = {};
 
